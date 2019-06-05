@@ -79,7 +79,19 @@ append(a, b);
 console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
-const append = (arr1, arr2) => arr1.push(...arr2);
+// const append = (arr1, arr2) => arr1.push(...arr2);
+
+const append = (arr1, arr2) => {
+  arr2.forEach(element => {arr1.push(element)
+  })
+};
+
+// var fruitArray = ['Apple', 'Grape', 'Orange'];
+// var veggieArray = ['Carrot', 'Celery', 'Turnip'];
+
+// veggieArray.forEach(element => {
+//   fruitArray.push(element);
+// })
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
