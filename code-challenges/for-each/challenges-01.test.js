@@ -32,8 +32,8 @@ const addValues = (arr, value) => arr.push(value);
 
 
 const addNumbers = (num, arr, times, callback) => {
-  callback(num, times);
-  return(arr)
+arr.forEach(callback(num, times));
+return arr; 
 };
 
 /* ------------------------------------------------------------------------------------------------
