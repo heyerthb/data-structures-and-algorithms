@@ -128,7 +128,7 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  // lost a commit somewhere...
 };
 
 /* ------------------------------------------------------------------------------------------------
