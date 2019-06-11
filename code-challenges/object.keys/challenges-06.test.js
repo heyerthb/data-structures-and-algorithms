@@ -92,12 +92,32 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
+// SOLUTION 1//////////////////////////////////////
+
+// const hasChildrenValues = (arr, character) => {
+//  let hasChildren = false;
+//  arr.forEach(element => {
+//    if (element.name === character && element.children.length > 0){
+//      hasChildren = true;
+//    }
+//  });
+//  return hasChildren;
+// };
+
 const hasChildrenValues = (arr, character) => {
-  for (let i = 0; i <= arr.length; i++){
-   if (Object.values(arr[i],) [2] !== []);
-   return true;
+    for (let i in arr) {
+      if (arr[i].name === character) {
+        let characterValues = Object.values(arr[i])[2];
+        if (characterValues.length > 0){
+          return true;
+        }
+      }
     }
-};
+      return false;
+    };
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
