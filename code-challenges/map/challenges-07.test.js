@@ -129,10 +129,7 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  newArr = arr.map(snorlaxAbilities.abilities.ability.name.value);
-  return newArr;
-};
+const extractAbilities = (arr) => arr.map(snorlax => snorlax.ability.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -177,9 +174,7 @@ const snorlaxStats = {
   weight: 4600,
 };
 
-const extractStats = (arr) => {
-  // Solution code here...
-};
+const extractStats = (arr) => arr.map(snorlax => ({name:snorlax.stat.name, total: snorlax.effort + snorlax.baseStat}));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -261,7 +256,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing objects with name and total values', () => {
     expect(extractStats(snorlaxStats.stats)).toStrictEqual([
       { name: 'speed', total: 35, },

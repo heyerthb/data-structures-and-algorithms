@@ -128,7 +128,16 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // lost a commit somewhere...
+  for (let i in arr){
+    if(arr[i].name === character){
+      let child = Object.values(arr[i].children);
+      if (child.length > 1){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,7 +147,20 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let charArr = [];
+  arr.forEach(charObj => {
+    let character = Object.values(charObj);
+    if(!character[0] === false){
+      charArr.push(character[0]);
+    } 
+    if (!character[1] === false){
+      charArr.push(character[1]);
+    }
+    character[2].forEach(character => {
+      charArr.push(character);
+    });
+  });
+  return charArr.length;
 };
 
 /* ------------------------------------------------------------------------------------------------

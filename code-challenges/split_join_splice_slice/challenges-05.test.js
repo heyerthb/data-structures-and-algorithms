@@ -80,10 +80,12 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
- for (let i = 0; i < recipe.ingredients.length; i++){
-   recipe.ingredients.indexOf(, 2)
- }
-  return result;
+  gruffaloCrumble.ingredients.forEach(element => {
+    let string1 = element.slice(element.indexOf(" ") + 1);
+    let string2 = string1.slice(string1.indexOf(" ")+ 1 );
+    result.push(string2);
+  })
+return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,7 +98,10 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  gruffaloCrumble.ingredients.forEach(element=>{
+    let string1 =element.split(" ");
+    result.push(string1.slice(2));
+  });
   return result;
 };
 
@@ -112,7 +117,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  gruffaloCrumble.steps.forEach(element =>{
+    let step1 = element.split(" ");
+    result.push(step1[0]);
+  })
   return result;
 };
 
@@ -130,7 +138,11 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for (let i = arr.length;  i >= 0; i--){
+    if (arr[i] % 2 === 0){
+      arr.splice(i, 1);
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,9 +160,9 @@ removeLastCharacters('Gregor', -2) returns 'Gregor'
 removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
-const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
-};
+const removeLastCharacters = (str, numberOfCharacters) => numberOfCharacters < 0 ? str :str.slice(0, -1 * numberOfCharacters);
+
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,11 +171,7 @@ CHALLENGE 8 - Stretch Goal
 Write a function named totalSumCSV that, given a string of comma-separated values (CSV) as input. (e.g. "1,2,3"), returns the total sum of the numeric values (e.g. 6).
 ------------------------------------------------------------------------------------------------ */
 
-const totalSumCSV = (str) => {
-  let total = 0;
-  // Solution code here...
-  return total;
-};
+const totalSumCSV = (str) => numberOfCharacters < 0 ? str :str.slice(0, -1 * numberOfCharacters);
 
 
 /* ------------------------------------------------------------------------------------------------

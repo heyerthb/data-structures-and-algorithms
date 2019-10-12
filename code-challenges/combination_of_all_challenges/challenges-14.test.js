@@ -88,9 +88,18 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-// let biggerThanLuke = (arr) => {
-  // arr.filter((el => arr[i].mass >))
-// };
+let biggerThanLuke = (arr) => {
+  let husky = arr.filter(person => {
+    if (parseInt(person.mass) > 77){
+      return person;
+    }
+  });
+  let named = husky.reduce((acc, val) => {
+    acc = `${acc}${val.name} - `;
+    return acc;
+  }, '');
+  return named.slice(0, -3);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -106,9 +115,11 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => {
-  // Solution code here...
-};
+const sortBy = (property, arr) => arr.sort((a,b) => {
+    if(a[property] > b[property]) return 1;
+    if (a[property] < b[property]) return -1;
+    return 0;
+  });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
