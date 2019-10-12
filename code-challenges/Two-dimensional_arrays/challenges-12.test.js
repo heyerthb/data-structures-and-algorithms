@@ -120,7 +120,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let num = 1;
+  for (let i = 0; i < numbers.length; i++){
+    for (let j = 0; j < numbers[i].length; j++){
+      num *= numbers[i][j];
+    }
+  }
+  return num;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,7 +146,15 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let counter = 0;
+  let totalTemps = 0;
+  for (let i =0; i < weather.length; i++) {
+    for (let j =0; j < weather.length; j ++){
+      counter ++;
+      totalTemps += weather[i][j];
+    }
+  }
+  return totalTemps / counter;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -161,7 +175,18 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let avgTemps = [];
+  for (let i = 0; i < weather.length; i++){
+    let counter = 0;
+    let temp = 0;
+    for (let j =0; j < weather[i].length; j++){
+      counter++; 
+      temp = temp + weather[i][j];
+    }
+    avgTemps.push(temp / counter);
+  }
+  let sortedTemp = avgTemps.sort();
+  return sortedTemp[0];
 };
 
 /* ------------------------------------------------------------------------------------------------

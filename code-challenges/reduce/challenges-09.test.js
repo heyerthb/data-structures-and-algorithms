@@ -81,9 +81,9 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
-
-};
+const reversedString = str => {
+    return str.split("").reduce((thing, char) => char + thing, "");
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -134,9 +134,15 @@ const characters = [
   },
 ];
 
-const countNumberOfChildren = (arr) => {
-  // Solution code here...
-};
+const countNumberOfChildren = (arr) => {
+    let number = arr.reduce((acc, val)=>{
+      if (val.children){
+        acc = acc + val.children.length;
+      }
+      return acc;
+    }, 0);
+    return number;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -146,8 +152,17 @@ Write a function that, given an array of numbers as input, uses reduce to calcul
 Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
-const calculateAverage = (arr) => {
-  // Solution code here...
+const calculateAverage = arr => {
+  let number = arr.reduce(
+    (element, val) => {
+      element.count = element.count + 1;
+      element.sum = element.sum + val;
+      return element;
+    },
+    { count: 0, sum: 0 }
+  );
+  let avg = number.sum / number.count;
+  return avg;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,18 +173,23 @@ Write a function named countPrimeNumbers that, given an array elements as input,
 You are welcome to use the provided isPrime function.
 ------------------------------------------------------------------------------------------------ */
 
-const isPrime = (value) => {
-  for (let i = 2; i < value; i++) {
-    if (value % i === 0) {
-      return false;
-    }
-  }
-  return value > 1;
-};
-
-const countPrimeNumbers = (arr) => {
-  // Solution code here...
-};
+const isPrime = (value) => {
+    for (let i = 2; i < value; i++) {
+      if (value % i === 0) {
+        return false;
+      }
+    }
+    return value > 1;
+  };
+  const countPrimeNumbers = (arr) => {
+    let prime = arr.reduce((element, val) =>{
+      if(isPrime(val)){
+        element = element +1;
+      }
+      return element;
+    }, 0);
+    return prime;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -210,9 +230,15 @@ const snorlaxData = {
   weight: 4600,
 };
 
-const extractStat = (statName, arr) => {
-  // Solution code here...
-};
+const extractStat = (statName, arr) => {
+    let names = arr.reduce((element, val)=>{
+      if(val.stat.name === statName){
+        return element = val;
+      }
+      return element;
+    }, {});
+    return names;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -251,37 +277,37 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the average of the numbers in the array', () => {
     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a count of the prime numbers in the array', () => {
     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return any stats that match the input', () => {
     expect(extractStat('speed', snorlaxData.stats)).toStrictEqual({ stat: { url: 'https://pokeapi.co/api/v2/stat/6/', name: 'speed' }, effort: 5, baseStat: 30 });
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array containing the names of the children', () => {
     expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
     expect(extractChildren(characters).length).toStrictEqual(10);

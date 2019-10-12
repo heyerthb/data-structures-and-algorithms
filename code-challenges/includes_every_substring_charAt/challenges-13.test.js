@@ -60,7 +60,11 @@ Write a function named onlyOddChars that takes in a string and returns only the 
 For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
-const onlyOddChars = (str) => str.charAt(str[i] % 2);
+// const onlyOddChars = (str) => str.charAt(str[i] % 2);
+const onlyOddChars = (str) => str.split('').filter((val, idx) => {
+  if(idx % 2) return true;
+  return false;
+}).join('');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -69,7 +73,12 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let result = arr.map( str => {
+      if(str.includes(":)")) return true;
+      return false;
+  });
+  if(result.includes(false)) return false;
+  return true;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,9 +87,10 @@ CHALLENGE 6
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => {
-  // Solution code here...
-};
+const findAnything = (arr, target) => arr.filter(thing => {
+  if(thing.includes(target)) return true;
+  return false;
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -89,7 +99,11 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  let result = arr.map(element =>{
+    if(element.includes(target)) return true;
+    return false;
+  });
+  if(result.includes(false)) return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +119,12 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  return arr.map( arr2 => {
+    return arr2.filter(names =>{
+      if(names.includes('Brook')) return false;
+      return true;
+    })
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------

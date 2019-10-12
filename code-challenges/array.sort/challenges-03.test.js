@@ -122,9 +122,19 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
+const sortPeopleBetter = (arr) => arr.sort((a,b)=>{
+  if(a.lastName < b.lastName){
+    return -1;
+  } else if(a.lastName === b.lastName && a.firstName === b.firstName){
+    return a.age - b.age;
+  }else if (a.firstName < b.firstName){
+    return -1;
+  }else{
+    return 1;
+  }
+});
  
- }
+ 
  
  
 
