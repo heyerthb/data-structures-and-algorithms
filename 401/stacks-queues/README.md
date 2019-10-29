@@ -8,4 +8,4 @@ Create a pseudo queue imitating enqueue and dequeue methods using two stacks and
 Beginning with a stack of three values (10, 15, 20) respecitively,we pushed/enqueued an additional value (5) onto a stack. Needed to return the value (20) on the bottom of the stack, we then peaked and popped our way to a new stack; dequeueing stack1 and enqueing stack2, until (20) was returned at the top of stack2. 
 
 ## Solution
-<!-- Embedded whiteboard image -->
+saved the image as an invalid file type. need to redraw.
