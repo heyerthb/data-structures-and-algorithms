@@ -1,11 +1,35 @@
 # Challenge Summary
-Create a brand new PseudoQueue class. Do not use an existing Queue. Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below), but will internally only utilize 2 Stack objects.
+- Stack and Queue Implementation
 
 ## Challenge Description
-Create a pseudo queue imitating enqueue and dequeue methods using two stacks and stack methods.
+- Create a Node class that has properties for the value stored in the Node, and a pointer to the next node.
+- Create a Stack class that has a top property. It creates an empty Stack when instantiated.
+- This object should be aware of a default empty value assigned to top when the stack is created.
+- Define a method called push which takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) Time performance.
+- Define a method called pop that does not take any argument, removes the node from the top of the stack, and returns the node’s value.
+- Define a method called peek that does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.
+- Define a method called isEmpty that does not take an argument, and returns a boolean indicating whether or not the stack is empty.
+- Create a Queue class that has a front property. It creates an empty Queue when instantiated.
+- This object should be aware of a default empty value assigned to front when the queue is created.
+- Define a method called enqueue which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
+- Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.
+- Define a method called peek that does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
+- Define a method called isEmpty that does not take an argument, and returns a boolean indicating whether or not the queue is empty.
+- Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+- Be sure to follow your languages best practices for naming conventions.
+- You have access to the Node class and all the properties on the Linked List class.
 
-## Approach & Efficiency
-Beginning with a stack of three values (10, 15, 20) respecitively,we pushed/enqueued an additional value (5) onto a stack. Needed to return the value (20) on the bottom of the stack, we then peaked and popped our way to a new stack; dequeueing stack1 and enqueing stack2, until (20) was returned at the top of stack2. 
+## Tests
 
-## Solution
-saved the image as an invalid file type. need to redraw.
+- Can successfully push onto a stack
+- Can successfully push multiple values onto a stack
+- Can successfully pop off the stack
+- Can successfully empty a stack after multiple pops
+- Can successfully peek the next item on the stack
+- Can successfully instantiate an empty stack
+- Can successfully enqueue into a queue
+- Can successfully enqueue multiple values into a queue
+- Can successfully dequeue out of a queue the expected value
+- Can successfully peek into a queue, seeing the expected value
+- Can successfully empty a queue after multiple dequeues
+- Can successfully instantiate an empty queue
