@@ -16,3 +16,5 @@ const insertionSort = (arr) =>{
 }
 
 insertionSort(arr);
+
+module.exports = insertionSort;
