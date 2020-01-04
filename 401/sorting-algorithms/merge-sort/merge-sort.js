@@ -1,16 +1,20 @@
-const MergeSort = (arr) => {
-  let n =arr.length;
+'use strict';
+
+const mergeSort = (arr) => {
+  let n = arr.length;
   if (n>1){
-    let mid = n/2;
-    let left = arr [0<=mid];
-    let right = arr [mid<n];
-    MergeSort(left);
-    MergeSort(right);
-    Merge(left, right, arr)
+    let mid = Math.floor(n/2);
+    let left = arr.slice(0, mid);
+    let right = arr.slice(mid);
+    mergeSort(left);
+    mergeSort(right);
+    return merge(left, right, arr)
+  } else {
+    return [];
   }
 }
 
-const Merge = (left, right, arr) => {
+const merge = (left, right, arr) => {
   let i = 0;
   let j = 0;
   let k = 0;
@@ -24,10 +28,21 @@ const Merge = (left, right, arr) => {
     }
     k= k+1;
   }
-
-  // if i = left.length
-  // set remaining entries in arr to remaining values in right
-  // else
-  // set remaining entries in arr to remaining values in left
-
+  if (i === left.length){
+    while(j < right.length){
+      arr[k] = right[j];
+      k++;
+      j++;
+    }
+  } else if (j===right.length){
+    while(i<left.length){
+      arr[k] = left[i];
+      k++;
+      i++;
+    }
+  }
+  return arr;
 }
+
+module.exports = {merge, mergeSort};
+
