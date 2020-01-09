@@ -1,3 +1,26 @@
+### A quickSort algorithm
+```js
+function quickSort(arr){
+    if (arr.length <= 1) {
+        return arr
+    }
+    var pivot = arr[arr.length -1];
+    var left = [];
+    var right = [];
+
+    for (var i = 0; i< arr.length -1; i++){
+        if (arr[i] < pivot){
+            left.push(arr[i])
+        }
+        else {right.push(arr[i])}
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)]
+}
+```
+
+
+
+
 1. Below we are given a sample array...
 ```js
 [8,4,23,42,16,15]
