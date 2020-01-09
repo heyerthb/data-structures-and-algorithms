@@ -1,18 +1,18 @@
 // 'use strict';
 
-const hash = (key, size) => {
-  let hashedKey = 0
+// const hash = (key, size) => {
+//   let hashedKey = 0
 
-  for (let i = 0; i < key.length; i++){
-    hashedKey = key.charCodeAt(i)
-  }
+//   for (let i = 0; i < key.length; i++){
+//     hashedKey = key.charCodeAt(i)
+//   }
 
-  return hashedKey % size
-}
+//   return hashedKey % size
+// }
 
 class HashTable {
-  constructor (){
-    this.size = 20
+  constructor (size){
+    this.size = size
     this.buckets = Array(this.size)
 
     for (let i = 0; i < this.buckets.length; i++){
@@ -20,19 +20,29 @@ class HashTable {
     }
   }
 
+  hash(key, size){
+    let hashedKey = 0
+
+    for (let i = 0; i < key.length; i++){
+      hashedKey = key.charCodeAt(i)
+    }
+
+    return hashedKey % size
+  }
+
   add(key,value){
-    let idx = hash(key, this.size)
+    let idx = this.hash(key, this.size)
     this.buckets[idx].set(key,value)
   }
   remove(key){
-    let idx = hash(key, this.size)
+    let idx = this.hash(key, this.size)
     let deleted = this.buckets[idx].get(key)
     this.buckets[idx].delete(key)
     return deleted;
   }
 
   get(key){
-    let idx = hash(key, this.size)
+    let idx = this.hash(key, this.size)
     if (this.buckets[idx].get(key)){
       return this.buckets[idx].get(key)
     } else {
@@ -41,7 +51,7 @@ class HashTable {
   }
 
   contains(key){
-    let idx = hash(key, this.size)
+    let idx = this.hash(key, this.size)
     if (this.buckets[idx].get(key)){
       return true
     } else {
@@ -60,4 +70,4 @@ class HashTable {
 // hashTable.add ('sage', 'damaged')
 
 module.exports = HashTable;
-module.exports = hash;
+// module.exports = hash;
